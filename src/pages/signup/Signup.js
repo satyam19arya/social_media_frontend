@@ -11,12 +11,13 @@ const Signup = () => {
   async function handleSubmit(e) {
       e.preventDefault();
       try {
-          const result = await axiosClient.post("/auth/signup", {
+          await axiosClient.post("/auth/signup", {
               name,
               email,
               password,
           });
-          console.log(result);
+          e.target.reset();
+          alert("User created successfully!");
       } catch (error) {
           console.log(error);
       }

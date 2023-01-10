@@ -44,6 +44,14 @@ axiosClient.interceptors.response.use(async (response) => {
             } 
         }
 
+        if(statusCode === 404){
+            alert("User not found");
+        }
+
+        if(statusCode === 409){
+            alert("User is already registered")
+        }
+
         return Promise.reject(error);
     }
-)
+);

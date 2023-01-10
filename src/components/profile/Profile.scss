@@ -1,0 +1,85 @@
+.Profile{
+    height: 91vh;
+    .container{
+        display: flex;
+        gap: 20px;
+        height: 91vh;
+    }
+    .left-part{
+        flex: 2;
+        overflow-y: auto;
+        overflow-y: auto;
+    }
+    .right-part{
+        flex: 1;
+        margin-top: 11px;
+        padding: 12px;
+        overflow-y: hidden;
+    }
+
+    .user-img{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-name, .follower-info{
+        margin-top: 12px;
+    }
+
+    .follower-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .update{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 20px;
+    }
+
+    .update-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 11px;
+        color: rgb(78, 77, 77);
+        border:none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition:all 100ms ease-out;
+    }
+
+    .update-button:hover{
+        background: rgb(213, 209, 209);
+    }
+
+    .logout{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 11px;
+        color: white;
+        background-color: rgb(230, 97, 97);
+        border:none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition:all 100ms ease-out;
+    }
+
+    .logout:hover{
+        background-color: rgb(225, 60, 60);
+    }
+}

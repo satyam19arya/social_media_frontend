@@ -1,0 +1,16 @@
+.Follower{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+
+    .user-info{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .name{
+        font-size: 0.8rem;
+    }
+}

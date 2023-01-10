@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
-
 *{
     margin: 0;
     padding: 0;
@@ -11,5 +9,57 @@
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+:root{
+    --theme-color: #217daf;
+    --cardColor: rgba(255, 255, 255, 0.64);
+    --buttonBg: linear-gradient(98.63deg, #5BC0F8 0%, #5BC0F8 100%);
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 11px;
+    color: white;
+    border:none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background: var(--buttonBg);
+    transition:all 100ms ease-out;
+}
+  
+.button:hover{
+    cursor: pointer;
+    color: white;
+    background: #37a0d8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212121;
+  }
+
+  h5{
+    color: #555;
+  }
+  
+  p {
+    color: #555;
+    font-size: 0.9rem;
+  }
+  
+  .hover-link {
+    cursor: pointer;
+  }
+  
+  .container {
+    max-width: 950px;
+    margin-inline: auto;
+  }
