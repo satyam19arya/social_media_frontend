@@ -2,7 +2,7 @@
     height: 91vh;
     .container{
         display: flex;
-        gap: 5px;
+        gap: 15px;
         overflow: hidden;
         height: 91vh;
     }
@@ -19,9 +19,5 @@
 
     .suggestions{
         margin-top: 28px;
-    }
-
-    .title{
-        padding-left: 18px;
     }
 }

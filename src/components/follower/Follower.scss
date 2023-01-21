@@ -1,6 +1,6 @@
 .Follower{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 60px;
 
@@ -8,6 +8,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        cursor: pointer;
     }
 
     .name{

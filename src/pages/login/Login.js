@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState }  from 'react';
 import './Login.scss';
 import { Link, useNavigate} from 'react-router-dom';
 import {axiosClient} from '../../utils/axiosClient';
@@ -13,12 +12,11 @@ const Login = () => {
   async function handleSubmit(e){
       e.preventDefault();
       try{
-        const result = await axiosClient.post('/auth/login', {
+        const response = await axiosClient.post('/auth/login', {
           email,
           password
         });
-        console.log(result);
-        setItem(KEY_ACCESS_TOKEN, result.accessToken);
+        setItem(KEY_ACCESS_TOKEN, response.result.accessToken);
         navigate('/');
       }catch(error){
         console.log(error);
@@ -36,7 +34,7 @@ const Login = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" className="password" id="password" required onChange={(e) => setPassword(e.target.value)}/>
 
-                <input type="submit" className="submit" value="Log In"/>
+                <input type="submit" className="auth_button" value="Log In"/>
 
                 <div className="signup_link">
                     Don't have an account? <Link to="/signup">Sign Up</Link>

@@ -37,7 +37,7 @@ const Signup = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" className="password" id="password" required  onChange={(e) => setPassword(e.target.value)}/>
 
-                <input type="submit" className="submit" value="Sign up"/>
+                <input type="submit" className="auth_button" value="Sign up"/>
 
                 <div className="login_link">
                     Already have an account? <Link to="/login">Log In</Link>

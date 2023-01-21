@@ -2,7 +2,6 @@
     height: 60px;
     top: 0;
     position: fixed;
-    background-color: white;
     box-shadow: 0px 10px 10px -15px #111;
     width: 100%;
     .container{
@@ -14,12 +13,8 @@
 
     .right-side{
         display: flex;
-        gap: 15px;
+        gap: 40px;
         align-items: center;
         justify-content: center;
-    }
-
-    .banner{
-        color: rgb(14, 14, 14);
     }
 }

@@ -17,49 +17,103 @@ body{
     display: none;
 }
 
-:root{
-    --theme-color: #217daf;
-    --cardColor: rgba(255, 255, 255, 0.64);
-    --buttonBg: linear-gradient(98.63deg, #5BC0F8 0%, #5BC0F8 100%);
+.container {
+  max-width: 950px;
+  margin-inline: auto;
 }
 
-.button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 9px 11px;
-    color: white;
-    border:none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background: var(--buttonBg);
-    transition:all 100ms ease-out;
+.auth_button{
+  align-items: center;
+  appearance: none;
+  background-color: #2691d9;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  color: #e9f4fb;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 41px;
+  justify-content: center;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  font-size: 18px;
 }
-  
-.button:hover{
-    cursor: pointer;
-    color: white;
-    background: #37a0d8;
+
+.auth_button:hover{
+  background-color: #2688c9;
+}
+
+.white_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 11px;
+  color: rgb(78, 77, 77);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:all 100ms ease-out;
+}
+
+.white_button:hover{
+  background: rgb(213, 209, 209);
+}
+
+.red_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 11px;
+  color: white;
+  background-color: rgb(230, 97, 97);
+  border:none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:all 100ms ease-out;
+}
+
+.red_button:hover{
+  background-color: rgb(225, 60, 60);
+}
+
+.blue_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 11px;
+  color: white;
+  background-color: rgb(93, 175, 233);
+  border:none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:all 100ms ease-out;
+}
+
+.blue_button:hover{
+  background-color:  rgb(53, 164, 244);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #212121;
-  }
+  color: #212121;
+}
 
-  h5{
-    color: #555;
-  }
+h5{
+  color: #555;
+}
   
-  p {
-    color: #555;
-    font-size: 0.9rem;
-  }
+p{
+  color: #555;
+  font-size: 0.9rem;
+}
   
-  .hover-link {
-    cursor: pointer;
-  }
-  
-  .container {
-    max-width: 950px;
-    margin-inline: auto;
-  }
+.hover-link {
+  cursor: pointer;
+}

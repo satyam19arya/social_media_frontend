@@ -2,44 +2,27 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import Avatar from '../avatar/Avatar';
 import './Navbar.scss';
-import {AiOutlineLogout, AiOutlineMessage} from 'react-icons/ai';
 import {AiOutlineHome} from 'react-icons/ai';
-import LoadingBar from 'react-top-loading-bar'
-import { useRef, useState } from 'react';
-
+import { useSelector } from 'react-redux';
+import {BsChatLeftDots} from 'react-icons/bs';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const loadingRef = useRef();
-
-  const [loading, setLoading] = useState(false);
-  function toggleLoadingBar(){
-    if(loading){
-      setLoading(false);
-      loadingRef.current.complete();
-    }else{
-      setLoading(true);
-      loadingRef.current.continuousStart();
-    }
-  }
+  const myProfile = useSelector(state => state.appConfigReducer.myProfile);
 
   return (
     <div className="Navbar">
-      <LoadingBar color='#5f9fff' ref={loadingRef} />
       <div className="container">
           <h2 className= "banner hover-link" onClick={() => navigate('/')}>WeSwipe</h2>
           <div className="right-side">
             <div className="profile hover-link" onClick={() => navigate('/')}>
-              <AiOutlineHome style={{fontSize: "30px" , color: "rgb(14, 14, 14)"}}/>
+              <AiOutlineHome style={{fontSize: "28px"}}/>
             </div>
             <div className="profile hover-link" onClick={() => navigate('/chat')}>
-              <AiOutlineMessage style={{fontSize: "30px" , color: "rgb(12, 14, 14)"}}/>
+              <BsChatLeftDots style={{fontSize: "23px"}}/>
             </div>
-            <div className="profile hover-link" onClick={() => navigate('/profile/aaa')}>
-              <Avatar />
-            </div>
-            <div className="profile hover-link" onClick={toggleLoadingBar}>
-              <AiOutlineLogout style={{fontSize: "30px" , color: "darkred"}}/>
+            <div className="profile hover-link" onClick={() => navigate(`/profile/${myProfile?._id}`)}>
+              <Avatar src={myProfile?.avatar?.url}/>
             </div>
           </div>
       </div>
@@ -48,3 +31,6 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+//shuruat mai myProfile ise milega nhi kyuki myProfile appConfigReducer sai aa rhi hai jo time lai sakti hai 
+//aur yeah ek asynchronous function bhi hai tho shrurat mai ise ek empty object milega tho islie ? lagaya hai to handle null
