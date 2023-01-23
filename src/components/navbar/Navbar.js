@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="Navbar">
       <div className="container">
-          <h2 className= "banner hover-link" onClick={() => navigate('/')}>WeSwipe</h2>
+          <h2 className= "banner hover-link" onClick={() => navigate('/')}>MediaADO</h2>
           <div className="right-side">
             <div className="profile hover-link" onClick={() => navigate('/')}>
               <AiOutlineHome style={{fontSize: "28px"}}/>

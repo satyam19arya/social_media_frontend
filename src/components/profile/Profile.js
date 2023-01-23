@@ -63,7 +63,7 @@ async function handleLogoutClicked() {
               <h4>{`${userProfile?.followings?.length} Following`}</h4>
             </div>
             <div className="update">
-              {!isMyProfile && <h5 onClick={handleUserFollow} className={isFollowing ? "hover-link follow-link" : "button"}>{isFollowing ? "Unfollow" : "Follow"}</h5>}
+              {!isMyProfile && <h5 onClick={handleUserFollow} className={isFollowing ? "hover-link follow-link" : "blue_button"}>{isFollowing ? "Unfollow" : "Follow"}</h5>}
               {isMyProfile && <button className="white_button" onClick={() => navigate('/updateprofile')}>Update Profile</button>}
               {isMyProfile && <button onClick={handleLogoutClicked} className="red_button">Logout</button>}
             </div>

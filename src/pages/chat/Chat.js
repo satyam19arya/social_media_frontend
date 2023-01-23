@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from "react";
 import './Chat.scss';
+import { useEffect } from "react";
+import { userChats } from "../chat/ChatRequest";
+import { useSelector } from "react-redux";
 
 const Chat = () => {
+    const [chats, setChats] = useState([]);
+    const user = useSelector(state => state.appConfigReducer.myProfile);
 
+    useEffect(() => {
+        const getChats = async () => {
+          try {
+            const { data } = await userChats(user);
+            setChats(data);
+            console.log(data);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        getChats();
+      }, [user]);
 
   return (
     <div className="Chat">
