@@ -5,7 +5,7 @@ import { setLoading, showToast } from "../redux/slices/appConfigSlice";
 import { TOAST_FAILURE } from "../App";
 
 let baseURL = 'http://localhost:4000/';
-console.log('Here env is', process.env.NODE_ENV);
+console.log('env', process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     baseURL = process.env.REACT_APP_SERVER_BASE_URL
 }
@@ -44,13 +44,13 @@ axiosClient.interceptors.response.use(async (response) => {
             // const response = await axiosClient.get("/auth/refresh");
             const response = await axios.create({
                 withCredentials: true,
-            }).get(`${baseURL}/auth/refresh`)
+            }).get(`${baseURL}auth/refresh`)
 
             if(response.data.status === "ok"){
                 setItem(KEY_ACCESS_TOKEN, response.data.result.accessToken);
                 originalRequest.headers["Authorization"] = `Bearer ${response.data.result.accessToken}`;
                 return axios(originalRequest);
-            } else{    //when request token expires, send user to login page
+            } else{    //when refresh token expires, send user to login page
                 removeItem(KEY_ACCESS_TOKEN);
                 window.location.replace("/login", "_self");
                 return Promise.reject(error);

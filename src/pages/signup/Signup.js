@@ -17,7 +17,7 @@ const Signup = () => {
               password,
           });
           e.target.reset();
-          alert("User created successfully!");
+          alert("Account created successfully!😊");
       } catch (error) {
           console.log(error);
       }

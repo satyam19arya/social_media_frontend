@@ -4,7 +4,7 @@ import Avatar from '../avatar/Avatar';
 import './Navbar.scss';
 import {AiOutlineHome} from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import {BsChatLeftDots} from 'react-icons/bs';
+import {MdOutlineVideoSettings} from 'react-icons/md';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,10 +16,10 @@ const Navbar = () => {
           <h2 className= "banner hover-link" onClick={() => navigate('/')}>MediaADO</h2>
           <div className="right-side">
             <div className="profile hover-link" onClick={() => navigate('/')}>
-              <AiOutlineHome style={{fontSize: "28px"}}/>
+              <AiOutlineHome style={{fontSize: "28px", color: "rgb(66, 66, 115)"}}/>
             </div>
             <div className="profile hover-link" onClick={() => navigate('/chat')}>
-              <BsChatLeftDots style={{fontSize: "23px"}}/>
+              <MdOutlineVideoSettings style={{fontSize: "28px", color: "rgb(66, 66, 115)"}}/>
             </div>
             <div className="profile hover-link" onClick={() => navigate(`/profile/${myProfile?._id}`)}>
               <Avatar src={myProfile?.avatar?.url}/>

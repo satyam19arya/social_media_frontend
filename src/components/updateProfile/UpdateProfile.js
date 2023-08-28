@@ -69,7 +69,7 @@ const UpdateProfile = () => {
                 <form onSubmit={handleSubmit}>
                     <input value={name} type="text" placeholder="Your Name" onChange={(e) => setName(e.target.value)}/>
                     <input value={bio} type="text" placeholder="Your Bio" onChange={(e) => setBio(e.target.value)}/>
-                    <input type="submit" className="white_button" onClick={handleSubmit}/>
+                    <input type="submit" value="Update" className="white_button" onClick={handleSubmit}/>
                 </form>
 
                 <div className="delete">
