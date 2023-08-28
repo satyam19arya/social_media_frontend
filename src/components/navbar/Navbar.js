@@ -4,7 +4,6 @@ import Avatar from '../avatar/Avatar';
 import './Navbar.scss';
 import {AiOutlineHome} from 'react-icons/ai';
 import { useSelector } from 'react-redux';
-import {MdOutlineVideoSettings} from 'react-icons/md';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,9 +16,6 @@ const Navbar = () => {
           <div className="right-side">
             <div className="profile hover-link" onClick={() => navigate('/')}>
               <AiOutlineHome style={{fontSize: "28px", color: "rgb(66, 66, 115)"}}/>
-            </div>
-            <div className="profile hover-link" onClick={() => navigate('/chat')}>
-              <MdOutlineVideoSettings style={{fontSize: "28px", color: "rgb(66, 66, 115)"}}/>
             </div>
             <div className="profile hover-link" onClick={() => navigate(`/profile/${myProfile?._id}`)}>
               <Avatar src={myProfile?.avatar?.url}/>
