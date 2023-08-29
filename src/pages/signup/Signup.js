@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import './Signup.scss';
 import { axiosClient } from "../../utils/axiosClient";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
       e.preventDefault();
@@ -17,7 +19,8 @@ const Signup = () => {
               password,
           });
           e.target.reset();
-          alert("Account created successfully!😊");
+          alert("Account created successfully! Now you can login 😊");
+          navigate('/login');
       } catch (error) {
           console.log(error);
       }
