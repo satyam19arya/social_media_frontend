@@ -1,0 +1,27 @@
+version: 2.1
+
+jobs:
+  build_and_push:
+    docker:
+      - image: cimg/node:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: build and push image
+          command: |
+            version="build-$CIRCLE_BUILD_NUM"
+            echo $version
+            docker build -t social_media_frontend:$version --build-arg REACT_APP_SERVER_BASE_URL=$REACT_APP_SERVER_BASE_URL .
+            docker tag social_media_frontend:$version satyam19arya/social_media_frontend:$version
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push satyam19arya/social_media_frontend:$version
+
+workflows:
+  GitOpsflow:
+    jobs:
+      - build_and_push:
+          filters:
+            branches:
+              only:
+                - master
