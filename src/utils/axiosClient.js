@@ -4,7 +4,7 @@ import store from '../redux/store';
 import { setLoading, showToast } from "../redux/slices/appConfigSlice";
 import { TOAST_FAILURE } from "../App";
 
-let baseURL = 'http://localhost:4000/';
+let baseURL = 'http://backend.satyam-arya.click/';
 console.log('env', process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     baseURL = process.env.REACT_APP_SERVER_BASE_URL
