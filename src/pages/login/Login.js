@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <div className="login">
         <div className="login-box">
-            <h2 className="heading">Aman</h2>
+            <h2 className="heading">Login</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input type="email" className="email" id="email" required onChange={(e) => setEmail(e.target.value)}/>
