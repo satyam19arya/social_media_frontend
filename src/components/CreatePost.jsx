@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './CreatePost.scss';
-import Avatar from '../avatar/Avatar';
+import Avatar from './Avatar';
 import {BsCardImage} from 'react-icons/bs';
 import {useDispatch, useSelector} from 'react-redux';
-import { axiosClient } from "../../utils/axiosClient";
-import { getUserProfile } from "../../redux/slices/postsSlice";
+import { axiosClient } from "../utils/axiosClient";
+import { getUserProfile } from "../redux/slices/postsSlice";
 
 
 const CreatePost = () => {
@@ -15,8 +15,9 @@ const CreatePost = () => {
 
 
   function handleImageChange(e){
-    const file = e.target.files[0];  //to select only one file
-    const fileReader = new FileReader(); // now we have to base64 encode that file so that we can send that file to backend
+    const file = e.target.files[0]; 
+    if(file.size > 2 * 1024 * 1024) return alert('Image size is too large (max: 2MB)');
+    const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.onload = () => {
         if(fileReader.readyState === fileReader.DONE){
@@ -27,7 +28,7 @@ const CreatePost = () => {
 
   const hanldePostSubmit = async() => {
     try {
-        await axiosClient.post('/posts', {
+        await axiosClient.post('/api/posts', {
             caption,
             postImg
         });
@@ -61,7 +62,13 @@ const CreatePost = () => {
             </label>
             <input className='inputImg' id="inputImg" type="file" accept="image/*" onChange={handleImageChange}/>
           </div>
-            <button className='blue_button' onClick={hanldePostSubmit}>Post</button>
+            <button
+              type='button'
+              className='inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white'
+              onClick={hanldePostSubmit}
+            >
+              Post
+            </button>
         </div>
         
       </div>

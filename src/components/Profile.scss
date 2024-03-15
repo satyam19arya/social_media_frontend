@@ -1,6 +1,6 @@
 .Profile{
     height: 91vh;
-    .container{
+    .containerd{
         display: flex;
         gap: 20px;
         height: 91vh;
@@ -25,9 +25,12 @@
     }
 
     .user-img{
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
 
     .bio{
@@ -46,11 +49,6 @@
     .update{
         display: flex;
         flex-direction: column;
-        gap: 8px;
         margin-top: 20px;
-    }
-
-    .follow-link{
-        text-align: center;
     }
 }

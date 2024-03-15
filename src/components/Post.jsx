@@ -1,26 +1,22 @@
 import React from 'react';
 import './Post.scss';
-import Avatar from '../avatar/Avatar';
+import Avatar from './Avatar';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router";
-import { useDispatch } from 'react-redux';
-import { likeAndUnlikePost } from "../../redux/slices/postsSlice";
 
-const Post = ({post}) => {   
-  const dispatch = useDispatch();
+const Post = ({post, onLike}) => {   
   const navigate = useNavigate();
 
   async function handlePostLiked() {
-    dispatch(likeAndUnlikePost({
-        postId: post._id
-    }))
-}
+    onLike(post._id);
+  }
 
   return (
-    <div className="Post">
+    <div className="Post p-1">
+      <div className='bg-white border rounded-sm px-2'>
         <div className="heading" onClick={() => navigate(`/profile/${post.owner._id}`)}>
-            <Avatar src={post.owner?.avatar?.url}/>
-            <h4>{post.owner?.name}</h4>
+          <Avatar src={post.owner?.avatar?.url}/>
+          <h4>{post.owner?.name}</h4>
         </div>
 
         <div className="content">
@@ -35,8 +31,9 @@ const Post = ({post}) => {
             <p className="caption">{post.caption}</p>
             <h6 className="time-ago">{post?.timeAgo}</h6>
         </div> 
+      </div>
     </div>
   )
 }
 
-export default Post; 
+export default Post;

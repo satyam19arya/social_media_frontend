@@ -1,5 +1,3 @@
-// to store access token in local storage
-
 export const KEY_ACCESS_TOKEN = "access_token";  // name provided to key
 
 export function getItem(key) {

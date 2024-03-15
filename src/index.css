@@ -1,11 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
 body{
@@ -14,88 +18,12 @@ body{
 }
 
 ::-webkit-scrollbar{
-    display: none;
+  display: none;
 }
 
-.container {
+.containerd {
   max-width: 950px;
   margin-inline: auto;
-}
-
-.auth_button{
-  align-items: center;
-  appearance: none;
-  background-color: #2691d9;
-  border-radius: 4px;
-  color: #e9f4fb;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 41px;
-  justify-content: center;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-size: 18px;
-}
-
-.auth_button:hover{
-  background-color: #2688c9;
-}
-
-.white_button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 11px;
-  color: rgb(78, 77, 77);
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition:all 100ms ease-out;
-}
-
-.white_button:hover{
-  background: rgb(213, 209, 209);
-}
-
-.red_button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 11px;
-  color: white;
-  background-color: rgb(230, 97, 97);
-  border:none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition:all 100ms ease-out;
-}
-
-.red_button:hover{
-  background-color: rgb(225, 60, 60);
-}
-
-.blue_button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 11px;
-  color: white;
-  background-color: rgb(93, 175, 233);
-  border:none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition:all 100ms ease-out;
-}
-
-.blue_button:hover{
-  background-color:  rgb(53, 164, 244);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -105,12 +33,8 @@ h1, h2, h3, h4, h5, h6 {
 h5{
   color: #555;
 }
-  
+
 p{
   color: #555;
   font-size: 0.9rem;
-}
-  
-.hover-link {
-  cursor: pointer;
 }
