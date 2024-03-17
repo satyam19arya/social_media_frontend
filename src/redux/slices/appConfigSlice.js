@@ -1,11 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosClient } from "../../utils/axiosClient";
 
-// jaha sai asynchronous call hoo rhi hai hume pta hai waha par loading hume dikhani hai 
-// tho hum sidha yahi sai dispatch kar dege loading state ko naa ki har component mai lagaye
-export const getMyInfo = createAsyncThunk("user/getMyInfo", async () => {
+export const getMyProfile = createAsyncThunk("user/getMyProfile", async () => {
     try{
-        const response = await axiosClient.get('/user/getMyInfo')
+        const response = await axiosClient.get('/api/user/getMyProfile')
         return response.result;
     }catch(e){
         return Promise.reject(e);
@@ -14,7 +12,7 @@ export const getMyInfo = createAsyncThunk("user/getMyInfo", async () => {
 
 export const updateMyProfile = createAsyncThunk("user/updateMyProfile", async (body) => {
     try{
-        const response = await axiosClient.put('/user/', body) //in body, we pass name, user, img
+        const response = await axiosClient.put('/api/user/', body)
         return response.result;
     }catch(e){
         return Promise.reject(e);
@@ -38,7 +36,7 @@ const appConfigSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(getMyInfo.fulfilled, (state, action) => {
+        .addCase(getMyProfile.fulfilled, (state, action) => {
             state.myProfile = action.payload.user;
         })
         .addCase(updateMyProfile.fulfilled, (state, action) => {
@@ -48,4 +46,4 @@ const appConfigSlice = createSlice({
 })
 
 export default appConfigSlice.reducer;
-export const {setLoading, showToast} = appConfigSlice.actions; 
+export const {setLoading, showToast} = appConfigSlice.actions;

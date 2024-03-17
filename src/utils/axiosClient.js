@@ -4,7 +4,7 @@ import store from '../redux/store';
 import { setLoading, showToast } from "../redux/slices/appConfigSlice";
 import { TOAST_FAILURE } from "../App";
 
-let baseURL = 'http://backend.satyam-arya.click/';
+let baseURL = 'http://localhost:4000';
 console.log('env', process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     baseURL = process.env.REACT_APP_SERVER_BASE_URL
@@ -38,10 +38,8 @@ axiosClient.interceptors.response.use(async (response) => {
             message: error
         }))
 
-        // means the access token has expired
         if(statusCode === 401 && !originalRequest._retry){
             originalRequest._retry = true;
-            // const response = await axiosClient.get("/auth/refresh");
             const response = await axios.create({
                 withCredentials: true,
             }).get(`${baseURL}auth/refresh`)
@@ -50,7 +48,7 @@ axiosClient.interceptors.response.use(async (response) => {
                 setItem(KEY_ACCESS_TOKEN, response.data.result.accessToken);
                 originalRequest.headers["Authorization"] = `Bearer ${response.data.result.accessToken}`;
                 return axios(originalRequest);
-            } else{    //when refresh token expires, send user to login page
+            } else{   
                 removeItem(KEY_ACCESS_TOKEN);
                 window.location.replace("/login", "_self");
                 return Promise.reject(error);

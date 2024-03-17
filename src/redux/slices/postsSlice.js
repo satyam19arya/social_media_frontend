@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosClient } from "../../utils/axiosClient";
 
-export const getUserProfile = createAsyncThunk("user/getUserProfile", async (body) => {
+export const getUserProfile = createAsyncThunk("/api/user/getUserProfile", async (body) => {
         try {
-            const response = await axiosClient.post("/user/getUserProfile",body);
+            const response = await axiosClient.post("/api/user/getUserProfile",body);
             return response.result;
         } catch (error) {
             return Promise.reject(error);
@@ -13,7 +13,7 @@ export const getUserProfile = createAsyncThunk("user/getUserProfile", async (bod
 
 export const likeAndUnlikePost = createAsyncThunk("post/likeAndUnlike", async (body) => {
         try {
-            const response = await axiosClient.post("/posts/like", body);
+            const response = await axiosClient.post("/api/posts/like", body);
             return response.result.post;
         } catch (error) {
             return Promise.reject(error);
